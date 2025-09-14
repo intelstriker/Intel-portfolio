@@ -46,10 +46,6 @@ Alternatively, you can download the ZIP file directly from the [GitHub repositor
 
    * Modify the `home.html`, `about.html`, and `skill.html` files to update your information.
 
-### Preview Your Portfolio
-
-Open the `index.html` file in your web browser to see your portfolio in action.
-
 ## Join Our Community
 
 For support, discussions, and updates, join our Discord server:
