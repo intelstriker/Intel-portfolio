@@ -9,6 +9,7 @@ body {
   background-size: cover;
   position: relative;
   margin: 0;
+  animation: glow 1.5s infinite alternate;
 }
 
 .logo1 {
@@ -42,6 +43,7 @@ h5 {
   font-family: Monospace;
   font-size: x-large;
   color: white;
+  animation: fadein 3s;
 }
 
 h4 {
@@ -56,21 +58,29 @@ h4 {
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: x-large;
   color: white;
+  animation: slide 4s;
 }
 
 h3 {
+  overflow: hidden; 
+  border-right: .10em solid orange;
+  margin: 0 auto;
+  letter-spacing: .15em;
+  animation:
+    typing 4.5s steps(40, end),
+    blink-caret .75s step-end infinite;
   position: absolute;
   top: 330px;
-  left: 750px;
-  width: auto;
+  left: 710px;
   height: 130px;
+  max-width: 350px;
   background-repeat: no-repeat;
   background-size: cover;
   z-index: -1;
   margin: 0;
   padding: 0;
   font-family:fantasy;
-  font-size: xx-large;
+  font-size: 32px;
   color: white
 }
 
@@ -83,6 +93,7 @@ h1 {
   font-family: Arial, Helvetica, sans-serif;
   z-index: 1;
   color: white;
+  animation: fadein 4s;
 }
 
 .Homebutton {
@@ -95,9 +106,39 @@ h1 {
   right: 600px;
   top: 5px;
   z-index: 1;
-  font-size: xx-large;
+  font-size: 32px;
   background-color: transparent;
   border: none;
+  transition: 0.5s;
+  color: var(--link-color);
+  display: inline-block;
+  padding: 0 var(--link-underline-padding);
+  text-decoration: none;
+}
+
+.Homebutton:hover {
+  font-size: 38px;
+  animation: glow 1.5s infinite alternate;
+}
+
+:root {
+    --link-color: rgb(0, 0, 0);
+    --link-underline-padding: .5em;
+}
+
+.Homebutton:after {
+    background-color: var(--link-color);
+    content: '';
+    display: block;
+    height: .1em;
+    margin-left: calc(var(--link-underline-padding) * -1);
+    margin-top: .2em;
+    transition: width .5s;
+    width: 0;
+}
+
+.Homebutton:hover:after {
+    width: calc(100% + var(--link-underline-padding) * 2);
 }
 
 .aboutbutton {
@@ -110,9 +151,37 @@ h1 {
   right: 500px;
   top: 5px;
   z-index: 1;
-  font-size: xx-large;
+  font-size: 32px;
   background-color: transparent;
   border: none;
+  transition: 0.5s;
+  padding: 0 var(--link-underline-padding);
+  text-decoration: none;
+}
+
+.aboutbutton:hover {
+  font-size: 38px;
+  animation: glow 1.5s infinite alternate;
+}
+
+:root {
+    --link-color: rgb(0, 0, 0);
+    --link-underline-padding: .5em;
+}
+
+.aboutbutton:after {
+    background-color: var(--link-color);
+    content: '';
+    display: block;
+    height: .1em;
+    margin-left: calc(var(--link-underline-padding) * -1);
+    margin-top: .2em;
+    transition: width .5s;
+    width: 0;
+}
+
+.aboutbutton:hover:after {
+    width: calc(100% + var(--link-underline-padding) * 2);
 }
 
 .skillbutton {
@@ -125,9 +194,37 @@ h1 {
   right: 400px;
   top: 5px;
   z-index: 1;
-  font-size: xx-large;
+  font-size: 32px;
   background-color: transparent;
   border: none;
+  transition: 0.5s;
+  padding: 0 var(--link-underline-padding);
+  text-decoration: none;
+}
+
+.skillbutton:hover {
+  font-size: 38px;
+  animation: glow 1.5s infinite alternate;
+}
+
+:root {
+    --link-color: rgb(0, 0, 0);
+    --link-underline-padding: .5em;
+}
+
+.skillbutton:after {
+    background-color: var(--link-color);
+    content: '';
+    display: block;
+    height: .1em;
+    margin-left: calc(var(--link-underline-padding) * -1);
+    margin-top: .2em;
+    transition: width .5s;
+    width: 0;
+}
+
+.skillbutton:hover:after {
+    width: calc(100% + var(--link-underline-padding) * 2);
 }
 
 .Discordbutton {
@@ -135,30 +232,78 @@ h1 {
   text-align: center;
   text-indent: 0px;
   padding-top: 10px;
-  padding-right: 10x;
+  padding-right: 10px;
   padding-bottom: 10px;
   right: 1500px;
   top: 750px;
   z-index: 1;
-  font-size: xx-large;
+  font-size: 32px;
   background-color: transparent;
   border: none;
+  transition: 0.5s;
 }
+
+.Discordbutton:hover {
+  font-size: 38px;
+  animation: glow 1.5s infinite alternate;
+}
+
 
 .Githubbutton {
   position: absolute;
   text-align: center;
   text-indent: 0px;
   padding-top: 10px;
-  padding-right: 10x;
+  padding-right: 10px;
   padding-bottom: 10px;
   right: 1300px;
   top: 750px;
   z-index: 1;
-  font-size: xx-large;
+  font-size: 32px;
   background-color: transparent;
   border: none;
+  transition: 0.5s;
 }
+
+.Githubbutton:hover {
+  font-size: 38px;
+  animation: glow 1.5s infinite alternate;
+}
+
+/* Glowing affect */
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px #00d4ff;
+    }
+    100% {
+        text-shadow: 0 0 10px #00d4ff;
+    }
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: black; }
+}
+
+/* Fading */
+@keyframes fadein {
+  from { opacity: 0}
+  to   { opacity: 1}
+}
+
+/* slideing */
+@keyframes slide {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(0); }
+}
+
 
 </style>
 </head>
@@ -180,11 +325,16 @@ h1 {
         <button class="skillbutton" style="color: white;">Skills</button>
     </aA>
     <a href="https://discordapp.com/users/1340770003322146858">
-        <button class="Discordbutton" style="font-size: 25px; background-color: blue; border-radius: 10px; border: none; color: white;"><i class="fa-brands fa-discord"></i>Discord</button>
+        <button class="Discordbutton" style="background-color: blue; border-radius: 10px; border: none; color: white;"><i class="fa-brands fa-discord"></i>Discord</button>
     </a>
-    <a href="github.com/intels">
-        <button class="Githubbutton" style="font-size: 25px; background-color: black; color: white; border-radius: 10px; border: none;"><i class="fa-brands fa-github"></i>Github</button>
+    <a href="https://github.com/intelstriker">
+        <button class="Githubbutton" style="background-color: black; color: white; border-radius: 10px; border: none;"><i class="fa-brands fa-github"></i>Github</button>
     </a>
+<script>
+  window.onload = function() {
+    document.body.className += " loaded";
+}
+</script>
 </form>
 </body>
 </html>
